@@ -22,20 +22,17 @@ public class SmartSuitSender : MonoBehaviour
     {
         foreach (Transform child in root)
         {
-            float px = child.transform.position.x;
-            float py = child.transform.position.y;
-            float pz = child.transform.position.z;
-            float rx = child.transform.rotation.x;
-            float ry = child.transform.rotation.y;
-            float rz = child.transform.rotation.z;
             String msg = "{";
             msg += "\"name\":\"" + child.name + "\",";
-            msg += "\"px\":" + px + ",";
-            msg += "\"py\":" + py + ",";
-            msg += "\"pz\":" + pz + ",";
-            msg += "\"rx\":" + rx + ",";
-            msg += "\"ry\":" + ry + ",";
-            msg += "\"rz\":" + rz;
+            msg += "\"px\":" + child.transform.position.x + ",";
+            msg += "\"py\":" + child.transform.position.y + ",";
+            msg += "\"pz\":" + child.transform.position.z + ",";
+            msg += "\"rx\":" + child.transform.rotation.x + ",";
+            msg += "\"ry\":" + child.transform.rotation.y + ",";
+            msg += "\"rz\":" + child.transform.rotation.z + ",";
+            msg += "\"sx\":" + child.transform.scale.x + ",";
+            msg += "\"sy\":" + child.transform.scale.y + ",";
+            msg += "\"sz\":" + child.transform.scale.z;
             msg += "}";
             //Debug.Log(msg);
             w.SendString(msg);
